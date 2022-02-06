@@ -9,14 +9,15 @@ const ingredients = [
 
 const ingredientsListRef = document.querySelector('#ingredients');
 // console.log(ingredientsListRef);
+const fragment = document.createDocumentFragment();
 
-const addList = ingredients.map(ingredient => {
+ingredients.forEach(ingredient => {
   
   const item = document.createElement('li');
-  item.innerHTML = ingredient;
+  item.textContent = ingredient;
   item.classList.add('item');
 
-  return item;
-  });
-
-  ingredientsListRef.append(...addList);
+  fragment.appendChild(item);
+});
+  
+ingredientsListRef.appendChild(fragment);
